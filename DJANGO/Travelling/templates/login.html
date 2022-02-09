@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+    .div
+    {
+        background: cyan;
+        height: 300px;
+        width: 500px;
+        padding-left: 100px;
+        border: 3px solid seagreen;
+    }
+    .txt
+    {
+         font-size: 20px;
+         
+    }
+    .btn
+        {
+            font-size: 20px;
+            color:white;
+            background: darkred;
+
+        }
+    .msg
+    {
+        color: red;
+    }
+    
+    </style>
+    
+</head>
+<body>
+    <div class="div">
+            
+            <form action="login" method="POST">
+                    {% csrf_token %}
+                    <h1>Login Form </h1>
+                    <br><br>
+                    <input type="text" name="username" placeholder="username" class="txt"> <strong class="msg">{{mydict.userError}}</strong>
+                    <br>
+                    <br>
+                    <br>
+                    <input type="password" name="password" placeholder="password" class="txt"><strong class="msg">{{mydict.passwordError}}</strong>
+                    <br>
+                    <br><br>
+                    <input type="submit" class="btn">
+                </form>
+                
+    </div>
+    
+</body>
+</html>

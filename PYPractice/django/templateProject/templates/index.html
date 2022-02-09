@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html> 
+<html lang="en" dir="ltr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>First Template Page</title> 
+<style > 
+#h11{ 
+color:red; 
+} 
+#h12{ 
+color:green; 
+} 
+
+.img
+{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.aclass
+{
+width : 250px;
+height : 250px;
+border: 3px;
+border-color: blueviolet;
+}
+</style> 
+</head> 
+<body>
+<h1 id=h11 >{{message}}</h1> 
+<h1 id=h12 >Time : {{time}}</h1> 
+<a  href="{% static 'images/team_1.jpg' %}" target="_blank">
+    <img class="img" src="{% static 'images/team_1.jpg' %}"  >
+</a><br>
+<a  href="{% static 'images/team_2.jpg' %}" target='_blank'>
+    <img class="img" src="{% static 'images/team_2.jpg' %}">
+</a><br>
+<a  href="{% static 'images/team_3.jpg' %}" target='_blank'>
+    <img class="img" src="{% static 'images/team_3.jpg' %}" ><br>
+</a>
+<a href="{% static 'images/team_4.jpg' %} " target='_blank'>
+    <img class="img" src="{% static 'images/team_4.jpg' %}" >
+</a>
+</body> 
+</html> 

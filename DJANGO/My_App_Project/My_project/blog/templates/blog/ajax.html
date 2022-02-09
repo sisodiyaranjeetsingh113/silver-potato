@@ -1,0 +1,85 @@
+{% extends 'blog/basic.html' %}
+{% block title %} Registration Form {% endblock %}
+ {% block script %}
+    <script>
+        function fun()
+        {
+            var uname=$("#uname").val();
+            var pass=$("#pass").val();
+            var email=$("#email").val();
+            var cont=$("#cont").val();
+            var fname=$("#fname").val();
+            var lname=$("#lname").val();
+            var city=$("#city").val();
+
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET","/blog/ajax1?uname="+uname+"&pass="+pass+"&email="+email+"&cont="+cont+"&fname="+fname+"&lname="+lname+"&city="+city,true);
+            xmlhttp.send();
+            xmlhttp.onreadystatechange=function(){
+                if(this.readyState == 4)
+                {
+                    alert('Record Successfully Submited...');
+                }
+            }
+        }
+        function display()
+        {
+
+
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET","/blog/ajax2",true);
+            xmlhttp.send();
+            xmlhttp.onreadystatechange=function(){
+                if(this.readyState == 4)
+                {
+                    document.getElementById("row").innerHTML=this.responseText;
+                }
+            }
+        }
+    </script>
+{% endblock %}
+{% block css %}
+<style>
+
+</style>
+{% endblock %}
+{% block body %}
+<div class="container">
+     <h1>{{ msg }}</h1>
+    <div class="row">
+        <div class="col-md-6">
+        <form method="get" action="">
+        <div class="form-group">
+            <label>UserName:</label> <input type="text" name="uname" class="form-control" id="uname" required>
+        </div>
+         <div class="form-group">
+            <label>Password:</label> <input type="password" name="pass" id="pass" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Email:</label> <input type="email" name="email" id="email" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label>Contact:</label> <input type="text" name="cont" id="cont" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>First Name:</label> <input type="text" name="fname" id="fname" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Last name:</label> <input type="text" name="lname" id="lname" class="form-control" required>
+        </div>
+         <div class="form-group">
+            <label>City:</label> <input type="text" name="city" class="form-control" id="city" required>
+        </div>
+            <input type="button" value="Submit" name="sub" onclick="fun()">
+            <input type="button" value="Display" name="sub" formnovalidate onclick="display()">
+        </form>
+        </div>
+    </div>
+    <div id="row">
+
+    </div>
+
+</div>
+
+{% endblock %}

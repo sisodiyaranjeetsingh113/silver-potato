@@ -1,0 +1,99 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Training</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+        .div
+        {
+        
+        display: inline;
+        font-size: 30px;
+        padding-left: 100px;
+        }
+        A{
+        text-decoration: none;
+        }
+        .logo
+        {
+            font-size: 40px;
+        }
+    
+      .img
+      {   border-radius: 50%;
+          width: 90px;
+          height: 90px;
+          border: 2px solid darkred;
+          padding: 2px;
+      }
+      table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  text-align-last: center
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 12px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>  
+        
+            <table>
+                    <tr>
+                      <th>Employee Id</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>About</th>
+                      <th>Employee Photo</th>
+                      <th> Show Employee</th>
+                      <th>
+                          <form action="add/">
+                              {% csrf_token %}
+                                  <input type="submit" value="Add Employee">
+  
+                          </form>      
+                         </th>
+
+                    </tr>
+                    {% for emp in form %}
+                    <tr>
+                      <td>{{emp.id}}</td>
+                      <td>{{ emp.first_name }}</td>
+                      <td>{{ emp.last_name }}</td>
+                      <td>{{ emp.about }}</td>
+                      <td><img src="{{ emp.image.url}}" alt="" class="img"></td>
+                      <td>
+                        <form action="{{emp.id}}" method="post">
+                            {% csrf_token %}
+                                <input type="submit" value="profile">
+
+                        </form>      
+                     </td>
+                     <td>
+                    <form action="{% url 'delete'  emp.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete">
+                    </form>
+                   </td>
+                    </tr>
+                    {% endfor %}    
+                    
+                   
+                  </table>
+            
+    
+                    
+</body>
+</html>

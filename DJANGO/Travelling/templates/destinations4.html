@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Destination</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+        .div
+        {
+            text-align: center ;
+            color: white;
+        }
+        .img
+        {
+            border: 3px solid darkred;
+        }
+        .heading
+        {
+          font-size: 30px;
+          color: white; 
+          text-align: center;  
+        }
+    </style>
+    
+   
+</head>
+<body bgcolor="black">
+   <div class="div">
+       
+        <h1 class="heading"><strong><br><br>{{dests1.name}}</strong></h1><br><br>
+        <img src="{{dests1.img.url}}" class='img'>
+        <div class="div">
+                <h1 class="heading"><strong >Description</strong></h1>
+         <p>
+             {{dests1.description}}
+             
+         </p>
+        </div>
+        <div>
+                <h3>In price of : {{dests1.price}}/ only</h3>
+        </div>
+   </div>   
+   
+   
+
+</body>
+</html> 

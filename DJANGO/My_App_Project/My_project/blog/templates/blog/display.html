@@ -1,0 +1,23 @@
+ <div class="row">
+    {{name}}
+        <table class="table m-2 table-bordered">
+            <tr>
+                <th>Uname</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Fname</th>
+                <th>Lname</th>
+                <th>City</th>
+            </tr>
+            {% for i in data%}
+            <tr>
+                <td>{{i.uname}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.contact}}</td>
+                <td>{{i.fname}}</td>
+                <td>{{i.lname}}</td>
+                <td>{{i.city}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>

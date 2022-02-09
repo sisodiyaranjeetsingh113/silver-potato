@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+        .div
+        {
+            background: cyan;
+            height: 550px;
+            width: 100%;
+            padding-left: 200px;
+            border: 3px solid seagreen;
+        }
+        .txt
+        {
+            font-size: 20px; 
+        }
+        .btn
+        {
+            font-size: 20px;
+            color: white;
+            background: darkred;
+
+        }
+        .msg
+        {
+          color: red;
+        }
+        
+        </style>
+        
+</head>
+<body>
+<div class="div">
+        <h1>Registration Form</h1>
+        <form action="register" method="POST">
+                {% csrf_token %}
+                <input type="text" name="first_name" placeholder="First Name" class="txt">
+                <br><br><br>
+                <input type="text" name="last_name" placeholder="Last Name" class="txt"><br><br><br>
+                <input type="text" name="username" placeholder="Username"class="txt"><strong class="msg">{{usernameE}}</strong><br><br><br>
+                <input type="email" name="email" placeholder="Email" class="txt"><strong class="msg">{{emailE}}</strong><br><br><br>
+                <input type="password" name="password1" placeholder="Password" class="txt"><br><br><br>
+                <input type="password" name="password2" placeholder="Confirm Password" class="txt" ><strong class="msg">{{passwordE}}</strong><br><br><br>
+                <input type="submit" class="btn"> <br>
+            </form>
+</div>
+    <div>
+        
+    </div>
+
+    
+</body>
+</html>

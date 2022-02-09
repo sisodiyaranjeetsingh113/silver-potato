@@ -1,0 +1,2 @@
+1:{"author_name":r,"author_book":rbokk}
+2:{"author_name":s,"author_book":sbook}

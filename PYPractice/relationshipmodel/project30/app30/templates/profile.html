@@ -1,0 +1,73 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Training</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    </head>
+    <style>
+        .div{
+            display: inline;
+        }
+        th{
+            padding-left: 100px;
+        }
+        td{
+            padding-left: 100px;
+        }
+    </style>
+<body>
+    <table>
+        <tr>
+         <th>Shoes Name</th>
+         <th>Shop Name</th>
+         <th>Order Date</th>
+         <th>Shoes_Color</th>
+        </tr>
+        {% for sd in shoes_data %}
+        <tr>
+        <td>{{sd.shoes_name}}</td>
+        <td>    
+        {% for sn in sd.shoes_shop.all %}
+        {{sn}},
+        {% endfor %}
+        </td>        
+        <td>{{sd.order_date}}</td>
+        <td>        
+        {% for cn in sd.shoes_color.all %}
+        {{cn}},
+        {% endfor %}
+        </td>     
+        <td>
+            <div class="div">
+                <form action="/profile/{{sd.id}}/" method="">
+                    
+                    <input type="submit" value="Update">
+                </form>      
+        </div>
+        </td>   
+        <td>
+        <div class="div">
+            <form action="/profile/delete/{{sd.id}}/" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Delete">
+            </form>      
+        </div>
+        </td>  
+        </tr>
+        {% endfor%}
+    </table>
+<div class="div">
+        <form action="add">
+            {% csrf_token %}
+                <input type="submit" value="Add Shoes">
+        </form>      
+</div>
+</body>
+
+</html>

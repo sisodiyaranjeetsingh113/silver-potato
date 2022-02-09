@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  text-align-last: center
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 12px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+    <table>
+        <tr>
+          <th>Sr.No.</th>
+          <th>Name</th>
+          <th>Salary</th>
+          <th>Department</th>
+        </tr>
+        {% for emp in emp %}
+        <tr>
+          <td>1</td>
+          <td>{{ emp.employeename }}</td>
+          <td>{{ emp.salary }}</td>
+          <td>{{ emp.department }}</td>
+        </tr>
+        {% endfor %}    
+        </tr>
+       
+      </table>
+    </body>
+    </html>
